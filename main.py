@@ -13,7 +13,7 @@ if "messages" not in st.session_state:
             "role": "assistant",
             "content": (
                 "Hello! I'm ByteAgent. I can answer your questions and search the web for real-time information. "
-                "Try asking me for the weather or the latest news!"
+                "Feel free to ask me anything!"
             )
         }
     ]
