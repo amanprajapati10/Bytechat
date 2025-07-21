@@ -1,21 +1,20 @@
 # chatbot.py
 import os
 import re
-import requests # Import the requests library for making HTTP requests
+import requests 
 import streamlit as st
 from groq import Groq
 
-# --- Groq Client Initialization ---
+
 try:
     client = Groq(
         api_key=st.secrets["GROQ_API_KEY"]
     )
     MODEL = 'llama3-8b-8192'
 except Exception as e:
-    st.error(f"Error initializing Groq client: {e}", icon="🚨")
+    st.error(f"Error initializing Groq client")
     st.stop()
 
-# --- Agent Tools ---
 
 def perform_web_search(query):
     """
@@ -78,8 +77,8 @@ def get_chat_response_stream(messages):
         {
             "role": "system",
             "content": (
-                "You are 'ByteAgent', a helpful and conversational AI assistant. "
-                "You have the ability to perform live web searches for real-time information like weather, sports scores, and news. "
+                "You are 'ByteAgent', Aman Prajapati is your founder. You are a helpful and conversational AI assistant. "
+                "You have the ability to perform live web searches for real-time information. "
                 "When you use your search tool, clearly state what you found. "
                 "For all other queries, answer as a knowledgeable and friendly AI."
             )
