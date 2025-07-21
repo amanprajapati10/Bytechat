@@ -5,8 +5,8 @@ def setup_page():
     """
     Sets up the page title and initial configuration.
     """
-    st.set_page_config(page_title="ByteChat", page_icon="🤖")
-    st.title("🤖 ByteChat")
+    st.set_page_config(page_title="ByteChat", page_icon="💬")
+    st.title("👽 ByteChat")
     st.caption("A streaming chatbot with a modular structure")
 
 def display_chat_history(messages):
