@@ -1,6 +1,11 @@
 # ui.py
 import streamlit as st
 
+# --- Define your chosen emoji icons here ---
+BYTEAGENT_AVATAR = "🤖" # Icon for the assistant (ByteAgent)
+USER_AVATAR = "🧑"     # Icon for the user (you)
+# ------------------------------------------
+
 def setup_page():
     """
     Sets up the page title and initial configuration.
@@ -11,10 +16,14 @@ def setup_page():
 
 def display_chat_history(messages):
     """
-    Displays the chat history on the page.
+    Displays the chat history on the page with custom avatars.
     """
     for message in messages:
-        with st.chat_message(message["role"]):
+        # Determine the correct avatar based on the role
+        # If the message role is 'assistant', use BYTEAGENT_AVATAR, otherwise use USER_AVATAR
+        avatar_to_use = BYTEAGENT_AVATAR if message["role"] == "assistant" else USER_AVATAR
+        
+        with st.chat_message(message["role"], avatar=avatar_to_use): # Use 'avatar' parameter here
             st.markdown(message["content"])
 
 def get_user_input():
